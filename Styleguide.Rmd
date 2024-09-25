@@ -1,0 +1,58 @@
+---
+title: "Styleguide"
+author: "Unity Tambellini-Smth"
+date: "2024-09-25"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+In this guide we will show you the basics of cleaning and styling a chart once you have created the basic skeleton.
+
+```{r}
+basic_plot <- iris |> ggplot(aes(x = Sepal.Length, y = Sepal.Width))+
+  geom_point()
+```
+
+
+# Labeling 
+```{r}
+basic_plot <- basic_plot +
+  labs(x = "this is how you label x", y = "this is how you label y", title = "An Example Chart")
+```
+
+# Fonts
+
+At TSL, charts are to be created using 'Palatino Linotype' font. This font does not come with R, in order to download and use it:
+
+1. Uncomment and run the following code block, answer any propts that appear in the console
+```{r, echo=FALSE}
+#install.packages('extrafont')
+#library(extrafont)
+#font_import(paths = c('Palatino Linotype'))
+```
+
+Congrats! You now have the font.
+
+2. To set the font of a chart use the theme() function
+```{r}
+basic_plot <- basic_plot+
+  #LINE TO CHANGE FONT
+  theme(text=element_text(
+      family="Palatino"), #font style
+      )
+
+basic_plot
+```
+
+# Colors
+
+```{r}
+#
+```
+
+
+# Manipulating Axes
